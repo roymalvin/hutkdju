@@ -13,7 +13,7 @@ import CtaSection from "./components/sections/CtaSection";
 import Footer from "./components/layout/Footer";
 import PhilosophySection from "./components/sections/PhilosophySection";
 import TimelineSection from "./components/sections/TimelineSection";
-import MerchandiseSection from "./components/sections/MerchandiseSection";
+
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
         <FeaturesSection />
         <TimelineSection />
         <PartnersSection />
-        <MerchandiseSection />
+
         <SponsorshipSection />
         <DonorsSection />
         <CommitteeSection />
