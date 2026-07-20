@@ -53,26 +53,7 @@ const socialIcons = [<InstagramIcon key="1" size={18} />];
 export default function Footer() {
   const container = useRef(null);
 
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none none"
-      }
-    });
 
-    tl.fromTo(".footer-grid", 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
-    )
-    .fromTo(".footer-bottom",
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: "power2.out" },
-      "-=0.5"
-    );
-  }, { scope: container });
 
   return (
     <footer ref={container} style={{ position: "relative", borderTop: "1px solid var(--glass-border)", overflow: "hidden", background: "var(--bg-main)" }}>
@@ -81,7 +62,6 @@ export default function Footer() {
         <div
           className="footer-grid"
           style={{
-            opacity: 0,
             display: "grid",
             gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr",
             gap: "2.5rem",
@@ -97,7 +77,7 @@ export default function Footer() {
             <p style={{ fontSize: "0.875rem", color: "var(--text-muted)", lineHeight: 1.7, marginBottom: "1.5rem" }}>
               Merayakan 26 tahun perjalanan KDJU. Bersama menumbuhkan fondasi kebaikan dan persaudaraan, layaknya akar mangrove yang menopang kehidupan.
             </p>
-            <div style={{ display: "flex", gap: "0.75rem" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", alignItems: "flex-start" }}>
               <a
                 href="https://instagram.com/hutkdju_official"
                 target="_blank"
@@ -109,7 +89,8 @@ export default function Footer() {
                   boxShadow: "var(--shadow-sm)",
                   color: "var(--text-main)", textDecoration: "none",
                   fontSize: "0.875rem", transition: "all 0.4s ease",
-                  background: "var(--bg-secondary)"
+                  background: "var(--bg-secondary)",
+                  width: "fit-content"
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-2px)";
@@ -122,6 +103,32 @@ export default function Footer() {
               >
                 <InstagramIcon size={18} />
                 <span style={{ fontWeight: 500, letterSpacing: "0.5px" }}>@hutkdju_official</span>
+              </a>
+              <a
+                href="https://instagram.com/kdju_official"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                  padding: "0.5rem 1rem", borderRadius: "2rem",
+                  border: "1px solid var(--glass-border)",
+                  boxShadow: "var(--shadow-sm)",
+                  color: "var(--text-main)", textDecoration: "none",
+                  fontSize: "0.875rem", transition: "all 0.4s ease",
+                  background: "var(--bg-secondary)",
+                  width: "fit-content"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "var(--shadow-soft)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "var(--shadow-sm)";
+                }}
+              >
+                <InstagramIcon size={18} />
+                <span style={{ fontWeight: 500, letterSpacing: "0.5px" }}>@kdju_official</span>
               </a>
             </div>
           </div>
@@ -162,14 +169,14 @@ export default function Footer() {
               </li>
               <li style={{ display: "flex", alignItems: "center", gap: "0.75rem", color: "var(--text-muted)", fontSize: "0.875rem" }}>
                 <span style={{ display: "flex", alignItems: "center", color: "var(--accent-base)" }}><Mail size={20} /></span>
-                <a href="mailto:kamadhisdharmajaya@gmail.com" style={{ color: "inherit", textDecoration: "none", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--accent-base)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--text-muted)"}>
-                  kamadhisdharmajaya@gmail.com
+                <a href="mailto:komunitas-kamadhis@uajy.ac.id" style={{ color: "inherit", textDecoration: "none", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--accent-base)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--text-muted)"}>
+                  komunitas-kamadhis@uajy.ac.id
                 </a>
               </li>
               <li style={{ display: "flex", alignItems: "center", gap: "0.75rem", color: "var(--text-muted)", fontSize: "0.875rem" }}>
                 <span style={{ display: "flex", alignItems: "center", color: "var(--accent-base)" }}><Phone size={20} /></span>
-                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--accent-base)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--text-muted)"}>
-                  +62 812-3456-7890 (Humas)
+                <a href="https://wa.me/6289529110136" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--accent-base)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--text-muted)"}>
+                  0895-2911-0136
                 </a>
               </li>
             </ul>
@@ -180,7 +187,6 @@ export default function Footer() {
         <div
           className="footer-bottom"
           style={{
-            opacity: 0,
             paddingTop: "2rem", borderTop: "1px solid var(--glass-border)",
             display: "flex", flexDirection: "column", gap: "2rem"
           }}

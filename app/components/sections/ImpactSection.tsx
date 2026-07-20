@@ -13,7 +13,7 @@ if (typeof window !== "undefined") {
 const stats = [
   { value: "5K+", label: "Target Jangkauan", icon: <Smartphone size={64} />, desc: "Proyeksi impresi kampanye media sosial yang dilihat melalui jaringan KDJU & mitra." },
   { value: "100+", label: "Relawan & Delegasi", icon: <Users size={64} />, desc: "Gabungan panitia dan peserta yang terjun langsung untuk aksi nyata di lapangan." },
-  { value: "100+", label: "Bibit Mangrove", icon: <Sprout size={64} />, desc: "Langkah konkrit restorasi pesisir pantai untuk mencegah abrasi berlanjut." },
+  { value: "200+", label: "Bibit Mangrove", icon: <Sprout size={64} />, desc: "Langkah konkrit restorasi pesisir pantai untuk mencegah abrasi berlanjut." },
   { value: "26", label: "Tahun Kontribusi", icon: <Hourglass size={64} />, desc: "Rekam jejak persaudaraan KDJU yang mengabdi dan berdampak positif." },
 ];
 

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { FileText, UserPlus } from "lucide-react";
+import { FileText, UserPlus, Heart } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -14,9 +14,9 @@ export default function CtaSection() {
   const container = useRef(null);
 
   useGSAP(() => {
-    
 
-    
+
+
   }, { scope: container });
 
   return (
@@ -48,49 +48,36 @@ export default function CtaSection() {
               justifyContent: "center",
               alignItems: "center"
             }}>
-              
-              <button className="cta-btn" style={{
-                background: "var(--accent-base)",
-                color: "white",
-                padding: "1rem 2rem",
-                borderRadius: "9999px",
-                fontSize: "1.05rem",
-                fontWeight: 600,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.75rem",
-                border: "none",
-                cursor: "pointer",
-                boxShadow: "0 8px 20px rgba(147, 165, 49, 0.3)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease"
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 12px 24px rgba(147, 165, 49, 0.4)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(147, 165, 49, 0.3)"; }}
+
+              <a 
+                href="#features" 
+                className="btn-calm btn-calm-secondary" 
+                style={{
+                  padding: "1rem 2rem",
+                  fontSize: "1.05rem",
+                  width: "100%",
+                  maxWidth: "280px"
+                }}
               >
                 <UserPlus size={20} /> Daftar Peserta
+              </a>
+
+              <button className="btn-calm btn-calm-secondary" style={{
+                padding: "1rem 2rem",
+                fontSize: "1.05rem",
+                width: "100%",
+                maxWidth: "280px"
+              }}>
+                <FileText size={20} /> Proposal Sponsor
               </button>
 
-              <button className="cta-btn" style={{
-                background: "var(--bg-main)",
-                color: "var(--text-main)",
+              <button className="btn-calm btn-calm-secondary" style={{
                 padding: "1rem 2rem",
-                borderRadius: "9999px",
                 fontSize: "1.05rem",
-                fontWeight: 600,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.75rem",
-                border: "1px solid var(--glass-border)",
-                cursor: "pointer",
-                boxShadow: "var(--shadow-soft)",
-                transition: "transform 0.3s ease, background 0.3s ease"
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.background = "var(--bg-accent-subtle)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.background = "var(--bg-main)"; }}
-              >
-                <FileText size={20} /> Unduh Proposal Sponsor
+                width: "100%",
+                maxWidth: "280px"
+              }}>
+                <Heart size={20} /> Berdonasi
               </button>
 
             </div>

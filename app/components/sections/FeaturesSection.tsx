@@ -18,7 +18,8 @@ const features = [
     targetDate: "2026-09-20T11:00:00+07:00",
     dateLabel: "20 September 2026",
     time: "11.00 WIB",
-    location: "Pantai Baros"
+    location: "Pantai Baros",
+    registrationLink: "#"
   },
   {
     title: "Birthday Party",
@@ -27,7 +28,8 @@ const features = [
     targetDate: "2026-09-26T12:30:00+07:00",
     dateLabel: "26 September 2026",
     time: "12.30 WIB",
-    location: "Ruang Seminar Kampus 3 UAJY"
+    location: "Ruang Seminar Kampus 3 UAJY",
+    registrationLink: "#"
   },
 ];
 
@@ -156,6 +158,19 @@ function FeatureCard({ feature, index }) {
       <div style={{ zIndex: 1 }}>
         <Countdown targetDate={feature.targetDate} />
       </div>
+
+      {/* Registration Button */}
+      {feature.registrationLink && (
+        <div style={{ zIndex: 1, marginTop: "1.5rem", display: "flex", justifyContent: "center" }}>
+          <a 
+            href={feature.registrationLink}
+            className="btn-calm btn-calm-primary"
+            style={{ width: "100%", justifyContent: "center" }}
+          >
+            Daftar Sekarang
+          </a>
+        </div>
+      )}
     </div>
   );
 }

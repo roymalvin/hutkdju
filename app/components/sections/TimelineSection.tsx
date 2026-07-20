@@ -4,7 +4,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Calendar, Users, Trophy, Heart } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -13,45 +12,39 @@ if (typeof window !== "undefined") {
 const timelineEvents = [
   {
     date: "TBA",
-    title: "Open Donasi",
-    description: "Pembukaan pengumpulan dana donasi untuk mendukung kegiatan.",
-    icon: <Heart size={20} />,
+    title: "Open Donation",
+    description: "Pembukaan pengumpulan dana donasi untuk mendukung kegiatan Revival Planting.",
     color: "var(--accent-base)"
   },
   {
     date: "TBA",
-    title: "Close Donasi",
-    description: "Batas akhir pengumpulan donasi.",
-    icon: <Calendar size={20} />,
-    color: "var(--text-muted)"
+    title: "Close Donation",
+    description: "Penutupan pengumpulan donasi.",
+    color: "var(--accent-base)"
   },
   {
     date: "TBA",
-    title: "Open Pendaftaran Revival Planting",
+    title: "Open Registration for Revival Planting",
     description: "Pendaftaran peserta untuk kegiatan penanaman mangrove.",
-    icon: <Users size={20} />,
-    color: "var(--accent-blue)"
-  },
-  {
-    date: "TBA",
-    title: "Close Pendaftaran Revival Planting",
-    description: "Penutupan pendaftaran kegiatan penanaman mangrove.",
-    icon: <Calendar size={20} />,
-    color: "var(--text-muted)"
-  },
-  {
-    date: "TBA",
-    title: "Open Pendaftaran Birthday Party",
-    description: "Pendaftaran untuk menghadiri acara puncak perayaan HUT.",
-    icon: <Trophy size={20} />,
     color: "var(--accent-base)"
   },
   {
     date: "TBA",
-    title: "Close Pendaftaran Birthday Party",
+    title: "Close Registration for Revival Planting",
+    description: "Penutupan pendaftaran kegiatan penanaman mangrove.",
+    color: "var(--accent-base)"
+  },
+  {
+    date: "TBA",
+    title: "Open Registration for Birthday Party",
+    description: "Pendaftaran untuk menghadiri acara puncak perayaan ulang tahun.",
+    color: "var(--accent-base)"
+  },
+  {
+    date: "TBA",
+    title: "Close Registration for Birthday Party",
     description: "Batas akhir pendaftaran acara puncak ulang tahun.",
-    icon: <Calendar size={20} />,
-    color: "var(--text-muted)"
+    color: "var(--accent-base)"
   }
 ];
 
@@ -106,7 +99,7 @@ export default function TimelineSection() {
   return (
     <section id="timeline" className="section" ref={container}>
       <div className="container-main" style={{ position: "relative", zIndex: 10 }}>
-        
+
         <div style={{ textAlign: "center", marginBottom: "4rem" }} className="timeline-header">
           <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "1rem" }}>
             <span style={{ color: "var(--text-main)" }}>Linimasa </span>
@@ -119,13 +112,13 @@ export default function TimelineSection() {
 
         <div className="timeline-container" style={{ position: "relative", maxWidth: "800px", margin: "0 auto", padding: "2rem 0" }}>
           {/* Garis Vertikal */}
-          <div 
-            className="timeline-line" 
-            style={{ 
-              position: "absolute", left: "50%", top: 0, bottom: 0, 
+          <div
+            className="timeline-line"
+            style={{
+              position: "absolute", left: "50%", top: "7rem", bottom: "9rem",
               width: "2px", background: "linear-gradient(to bottom, var(--accent-base), var(--accent-blue))",
               transformOrigin: "top", marginLeft: "-1px"
-            }} 
+            }}
           />
 
           <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
@@ -133,7 +126,7 @@ export default function TimelineSection() {
               const isEven = index % 2 === 0;
               return (
                 <div key={index} className="timeline-item" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
-                  
+
                   {/* Bagian Kiri */}
                   <div style={{ width: "45%", textAlign: isEven ? "right" : "left", order: isEven ? 1 : 3 }}>
                     <div className="glass" style={{ padding: "1.5rem", borderRadius: "16px", border: "1px solid var(--glass-border)", display: "inline-block", width: "100%", textAlign: "left" }}>
@@ -145,15 +138,16 @@ export default function TimelineSection() {
                     </div>
                   </div>
 
-                  {/* Ikon Tengah */}
+                  {/* Ikon Tengah (Angka) */}
                   <div style={{ order: 2, zIndex: 2, display: "flex", justifyContent: "center", width: "10%" }}>
-                    <div style={{ 
-                      width: "3rem", height: "3rem", borderRadius: "50%", 
+                    <div style={{
+                      width: "3rem", height: "3rem", borderRadius: "50%",
                       background: "var(--bg-main)", border: `2px solid ${event.color}`,
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      color: event.color, boxShadow: "var(--shadow-sm)"
+                      color: event.color, boxShadow: "var(--shadow-sm)",
+                      fontWeight: 700, fontSize: "1.25rem"
                     }}>
-                      {event.icon}
+                      {index + 1}
                     </div>
                   </div>
 

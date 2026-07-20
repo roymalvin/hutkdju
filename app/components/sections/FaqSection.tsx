@@ -21,11 +21,11 @@ const faqs = [
   },
   {
     question: "Siapa saja yang bisa mengikuti acara Birthday Party?",
-    answer: "Acara puncak Birthday Party diselenggarakan sebagai wadah keakraban internal kampus. Oleh karena itu, sasaran peserta untuk acara ini terdiri dari mahasiswa serta tamu undangan dengan target 50 peserta."
+    answer: "Acara puncak Birthday Party diselenggarakan sebagai wadah keakraban internal kampus. Oleh karena itu, sasaran peserta untuk acara ini terdiri dari mahasiswa serta tamu undangan."
   },
   {
     question: "Bagaimana cara menyalurkan donasi?",
-    answer: "Anda dapat menyalurkan donasi dengan mengklik tombol 'Berikan Donasi' yang akan mengarahkan Anda ke platform urun dana resmi kami atau informasi nomor rekening kepanitiaan."
+    answer: "Anda dapat menyalurkan donasi dengan mengklik tombol 'Berikan Donasi' yang akan mengarahkan Anda ke form donasi resmi kami."
   },
   {
     question: "Hingga kapan pendaftaran Sponsorship dibuka?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: "Apakah donatur bisa ikut serta dalam penanaman mangrove (Revival Planting X Tree of Heart)?",
-    answer: "Tentu saja! Donatur yang ingin terlibat langsung dalam aksi penanaman mangrove di Pantai Baros dapat ikut serta dengan mendaftarkan diri sebagai peserta kegiatan. Dengan mendaftar sebagai peserta, donatur dapat berkontribusi langsung dalam menjaga ekosistem pesisir bersama kami di lokasi."
+    answer: "Tentu saja! Donatur yang ingin terlibat langsung dalam aksi penanaman mangrove di Pantai Baros dapat ikut serta dengan mendaftarkan diri sebagai volunteer kegiatan. Dengan mendaftar sebagai peserta, donatur dapat berkontribusi langsung dalam menjaga ekosistem pesisir bersama kami di lokasi."
   },
   {
     question: "Kapan dan di mana rangkaian acara HUT KDJU 26 diselenggarakan?",
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: "Selain menanam mangrove, apa saja kegiatan selama berada di Pantai Baros?",
-    answer: "Peserta tidak hanya menanam mangrove, tetapi juga akan mendapatkan materi edukasi ekosistem dari narasumber pengelola Hutan Mangrove Baros, serta sesi berbagi wawasan lingkungan bersama Bapak Agus (Pemerhati Lingkungan Yogyakarta). Selain itu, akan ada sesi games outbound untuk mempererat keakraban peserta."
+    answer: "Peserta tidak hanya menanam mangrove, tetapi juga akan mendapatkan materi edukasi ekosistem , serta sesi berbagi wawasan lingkungan. Selain itu, akan ada sesi games outbound untuk mempererat keakraban peserta."
   },
   {
     question: "Apakah ada barang khusus yang wajib dibawa oleh peserta Revival Planting X Tree of Heart?",
@@ -50,6 +50,10 @@ const faqs = [
   {
     question: "Apakah panitia menyediakan transportasi menuju Pantai Baros?",
     answer: "Ya, peserta tidak perlu khawatir mengenai transportasi. Titik kumpul berada di Kampus UAJY, dan panitia telah menyediakan bus untuk berangkat bersama-sama menuju Pantai Baros serta kembali lagi ke kampus setelah acara selesai."
+  },
+  {
+    question: "Ke mana saya harus menghubungi jika memiliki pertanyaan lebih lanjut?",
+    answer: "Untuk informasi atau pertanyaan lebih lanjut, Anda dapat langsung menghubungi Contact Person kami melalui WhatsApp di nomor 0895-2911-0136."
   }
 ];
 
@@ -58,9 +62,9 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   useGSAP(() => {
-    
 
-    
+
+
   }, { scope: container });
 
   return (
@@ -93,7 +97,7 @@ export default function FaqSection() {
               key={i}
               className="glass faq-item"
               style={{
-                
+
                 borderRadius: "16px",
                 overflow: "hidden",
                 background: "var(--card-bg)"

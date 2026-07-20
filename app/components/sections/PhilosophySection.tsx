@@ -1,13 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
 
 const philosophyItems = [
   {
@@ -43,52 +35,13 @@ const philosophyItems = [
 ];
 
 export default function PhilosophySection() {
-  const container = useRef(null);
-
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top 70%",
-        end: "bottom 20%",
-        toggleActions: "play none none none"
-      }
-    });
-
-    tl.fromTo(".phil-title", 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    );
-
-    gsap.utils.toArray('.phil-row').forEach((row: any, i) => {
-      const isEven = i % 2 === 0;
-      gsap.fromTo(row.querySelector('.phil-text'),
-        { opacity: 0, x: isEven ? -50 : 50 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out", scrollTrigger: {
-          trigger: row,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }}
-      );
-      gsap.fromTo(row.querySelector('.phil-img-container'),
-        { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.5)", scrollTrigger: {
-          trigger: row,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }}
-      );
-    });
-
-  }, { scope: container });
-
   return (
-    <section id="philosophy" className="section" ref={container}>
+    <section id="philosophy" className="section">
       <div className="container-main" style={{ position: "relative", zIndex: 10 }}>
-        
+
         <div style={{ textAlign: "center", marginBottom: "4rem" }} className="phil-title">
           <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "1rem" }}>
-            <span style={{ color: "var(--text-main)" }}>Makna Kepingan </span>
+            <span style={{ color: "var(--text-main)" }}>Makna </span>
             <span className="gradient-text">Logo</span>
           </h2>
           <p style={{ color: "var(--text-muted)", fontSize: "1.125rem", maxWidth: "700px", margin: "0 auto" }}>
@@ -100,17 +53,17 @@ export default function PhilosophySection() {
           {philosophyItems.map((item, idx) => {
             const isEven = idx % 2 === 0;
             return (
-              <div key={idx} className="phil-row" style={{ 
-                display: "flex", 
-                flexDirection: isEven ? "row" : "row-reverse", 
-                gap: "3rem", 
-                alignItems: "center" 
+              <div key={idx} className="phil-row" style={{
+                display: "flex",
+                flexDirection: isEven ? "row" : "row-reverse",
+                gap: "3rem",
+                alignItems: "center"
               }}>
                 {/* Teks */}
-                <div className="phil-text glass" style={{ 
-                  flex: 1, 
-                  padding: "2rem", 
-                  borderRadius: "20px", 
+                <div className="phil-text glass" style={{
+                  flex: 1,
+                  padding: "2rem",
+                  borderRadius: "20px",
                   border: "1px solid var(--glass-border)",
                   textAlign: isEven ? "left" : "right"
                 }}>
@@ -123,10 +76,10 @@ export default function PhilosophySection() {
                 </div>
 
                 {/* Gambar (Kepingan Logo) */}
-                <div className="phil-img-container" style={{ 
-                  flex: 1, 
-                  display: "flex", 
-                  justifyContent: "center", 
+                <div className="phil-img-container" style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "center",
                   alignItems: "center",
                   position: "relative",
                   padding: "2rem"
@@ -138,11 +91,11 @@ export default function PhilosophySection() {
                     opacity: 0.1, zIndex: -1,
                     borderRadius: "50%"
                   }} />
-                  
+
                   <div style={{
                     width: "100%", maxWidth: "300px", aspectRatio: "1/1",
                     position: "relative",
-                    background: "var(--bg-secondary)", 
+                    background: "var(--bg-secondary)",
                     borderRadius: "24px",
                     border: "1px dashed var(--glass-border)",
                     display: "flex",
@@ -150,19 +103,19 @@ export default function PhilosophySection() {
                     justifyContent: "center",
                     overflow: "hidden"
                   }}>
-                    <img 
-                      src={item.imageSrc} 
+                    <img
+                      src={item.imageSrc}
                       alt={item.alt}
-                      style={{ 
-                        width: "100%", 
-                        height: "100%", 
+                      style={{
+                        width: "100%",
+                        height: "100%",
                         objectFit: "contain",
                         position: "relative",
                         zIndex: 1,
                         filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.1))"
                       }}
                       onError={(e) => {
-                        e.currentTarget.style.opacity = "0"; 
+                        e.currentTarget.style.opacity = "0";
                       }}
                     />
                   </div>

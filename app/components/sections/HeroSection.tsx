@@ -14,9 +14,9 @@ export default function HeroSection() {
   const container = useRef(null);
 
   useGSAP(() => {
-    
 
-    
+
+
 
     // Floating background elements
     gsap.to(".bg-float-1", { y: -20, rotation: 10, duration: 4, yoyo: true, repeat: -1, ease: "sine.inOut" });
@@ -41,15 +41,7 @@ export default function HeroSection() {
         backgroundSize: "40px 40px"
       }}
     >
-      {/* Soft Glow Background Blobs */}
-      <div style={{
-        position: "absolute", top: "10%", left: "-10%", width: "50vw", height: "50vw",
-        background: "radial-gradient(circle, var(--accent-base) 0%, transparent 60%)", opacity: 0.15, filter: "blur(80px)", pointerEvents: "none"
-      }} />
-      <div style={{
-        position: "absolute", bottom: "-10%", right: "-5%", width: "60vw", height: "60vw",
-        background: "radial-gradient(circle, var(--accent-blue) 0%, transparent 60%)", opacity: 0.15, filter: "blur(80px)", pointerEvents: "none"
-      }} />
+
 
       {/* Floating Background Emojis - Consistent SVG (Twemoji) */}
       <div className="bg-float-1" style={{ position: "absolute", top: "15%", left: "10%", opacity: 0.35, width: "4rem" }}>
@@ -78,8 +70,7 @@ export default function HeroSection() {
           className="hero-title"
           style={{ fontSize: "clamp(3.5rem, 8vw, 6.5rem)", fontWeight: 900, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: "1.5rem", maxWidth: "64rem" }}
         >
-          <span style={{ color: "var(--text-main)" }}>Roots of </span>
-          <span className="gradient-text">Revival</span>
+          <span style={{ color: "var(--text-main)" }}>Roots of Revival</span>
         </h1>
 
         {/* Subtitle */}
@@ -95,15 +86,15 @@ export default function HeroSection() {
         <div className="hero-buttons" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1.5rem", marginBottom: "6rem" }}>
           <a
             href="#sponsorship"
-            className="btn-calm btn-calm-primary"
-            style={{  padding: "1.25rem 3rem", fontSize: "1.125rem" }}
+            className="btn-calm bg-gradient-to-br from-[#b4c93f] to-[#00d4ff] text-white hover:from-[#b4c93f] hover:to-[#00d4ff]"
+            style={{ padding: "1.25rem 3rem", fontSize: "1.125rem" }}
           >
             <Handshake size={20} style={{ marginRight: "0.5rem" }} /> Jadi Sponsor
           </a>
           <a
             href="#donors"
             className="btn-calm btn-calm-secondary"
-            style={{  padding: "1.25rem 3rem", fontSize: "1.125rem" }}
+            style={{ padding: "1.25rem 3rem", fontSize: "1.125rem" }}
           >
             <Sprout size={20} style={{ marginRight: "0.5rem" }} /> Berikan Donasi
           </a>
@@ -115,10 +106,11 @@ export default function HeroSection() {
           width: "100%", maxWidth: "64rem"
         }}>
           {[
-            { value: "2000", label: "Tahun Berdiri" },
+
             { value: "26", label: "Tahun Usia KDJU" },
             { value: "27", label: "September 2026" },
             { value: "2", label: "Rangkaian Acara" },
+            { value: "1", label: "Tujuan" },
           ].map((stat, i) => (
             <div
               key={i}

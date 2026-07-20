@@ -145,9 +145,9 @@ export default function AboutSection() {
         .card-highlight {
           grid-column: span 1;
           grid-row: span 2;
-          background: linear-gradient(135deg, var(--accent-base), var(--accent-blue));
+          background: linear-gradient(135deg, var(--accent-base), var(--accent-dark)) !important;
           border: none;
-          box-shadow: 0 10px 30px rgba(147, 165, 49, 0.2);
+          box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
         }
 
         .bento-heading {

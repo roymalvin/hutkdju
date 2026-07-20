@@ -8,23 +8,23 @@ import ThemeToggle from "../ui/ThemeToggle";
 
 const navLinks = [
   { name: "Beranda", href: "#hero" },
-  { 
-    name: "Tentang", 
+  {
+    name: "Tentang",
     dropdown: [
       { name: "Tentang Kami", href: "#about" },
       { name: "Pencapaian", href: "#impact" },
       { name: "Susunan Panitia", href: "#committee" },
     ]
   },
-  { 
-    name: "Kegiatan", 
+  {
+    name: "Kegiatan",
     dropdown: [
       { name: "Program Acara", href: "#features" },
       { name: "Memory Lane", href: "#documentation" },
     ]
   },
-  { 
-    name: "Dukungan", 
+  {
+    name: "Dukungan",
     dropdown: [
       { name: "Sponsorship", href: "#sponsorship" },
       { name: "Mitra Kolaborasi", href: "#partners" },
@@ -51,12 +51,6 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  useGSAP(() => {
-    gsap.fromTo(navRef.current, 
-      { y: -100 }, 
-      { y: 0, duration: 1, ease: "power2.out" }
-    );
-  }, []);
 
   useGSAP(() => {
     if (mobileOpen) {
@@ -76,7 +70,7 @@ export default function Navbar() {
       <nav
         ref={navRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500`}
-        style={{ 
+        style={{
           background: scrolled ? "var(--nav-bg)" : "transparent",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
@@ -133,18 +127,18 @@ export default function Navbar() {
                     <div className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="py-2 rounded-2xl shadow-xl overflow-hidden" style={{ background: "var(--nav-bg)", border: "1px solid var(--glass-border)", backdropFilter: "blur(20px)" }}>
                         {link.dropdown.map(sub => (
-                          <a 
-                            key={sub.name} 
-                            href={sub.href} 
-                            style={{ 
-                              display: "block", padding: "0.5rem 1.25rem", 
-                              fontSize: "0.875rem", color: "var(--text-muted)", 
-                              textDecoration: "none", transition: "all 0.2s" 
-                            }} 
+                          <a
+                            key={sub.name}
+                            href={sub.href}
+                            style={{
+                              display: "block", padding: "0.5rem 1.25rem",
+                              fontSize: "0.875rem", color: "var(--text-muted)",
+                              textDecoration: "none", transition: "all 0.2s"
+                            }}
                             onMouseEnter={(e) => {
                               e.currentTarget.style.color = "var(--text-main)";
                               e.currentTarget.style.background = "var(--bg-secondary)";
-                            }} 
+                            }}
                             onMouseLeave={(e) => {
                               e.currentTarget.style.color = "var(--text-muted)";
                               e.currentTarget.style.background = "transparent";
@@ -158,7 +152,7 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              
+
               <div style={{ marginLeft: "1rem" }}>
                 <a
                   href="#donors"
@@ -250,7 +244,7 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            
+
             <a
               href="#donors"
               className="mobile-link btn-calm btn-calm-primary"
