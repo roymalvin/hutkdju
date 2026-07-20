@@ -164,7 +164,7 @@ function FeatureCard({ feature, index }) {
         <div style={{ zIndex: 1, marginTop: "1.5rem", display: "flex", justifyContent: "center" }}>
           <a 
             href={feature.registrationLink}
-            className="btn-calm btn-calm-primary"
+            className="btn-calm btn-gradient-solid"
             style={{ width: "100%", justifyContent: "center" }}
           >
             Daftar Sekarang

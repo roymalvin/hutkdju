@@ -156,7 +156,7 @@ export default function Navbar() {
               <div style={{ marginLeft: "1rem" }}>
                 <a
                   href="#donors"
-                  className="btn-calm btn-calm-primary"
+                  className="btn-calm btn-gradient-solid"
                   style={{
                     padding: "0.5rem 1.25rem",
                     fontSize: "0.875rem",
@@ -247,7 +247,7 @@ export default function Navbar() {
 
             <a
               href="#donors"
-              className="mobile-link btn-calm btn-calm-primary"
+              className="mobile-link btn-calm btn-gradient-solid"
               onClick={() => setMobileOpen(false)}
               style={{
                 marginTop: "1.5rem", opacity: 0

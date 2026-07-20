@@ -135,7 +135,7 @@ export default function SponsorshipSection() {
             <a
               href="/proposal-sponsorship-kdju26.pdf"
               download
-              className="btn-calm btn-calm-primary"
+              className="btn-calm btn-gradient-solid"
             >
               <FileText size={20} /> Unduh Proposal Lengkap (PDF)
             </a>

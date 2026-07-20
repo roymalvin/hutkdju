@@ -409,7 +409,7 @@ body {
   justify-content: center;
   font-weight: 700;
   color: #ffffff !important; /* Teks putih agar terlihat jelas di atas gradien */
-  background: linear-gradient(135deg, var(--accent-dark), var(--accent-base));
+  background: linear-gradient(to bottom right, var(--accent-base), var(--accent-dark));
   border-radius: 9999px;
   transition: all 0.4s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -418,6 +418,6 @@ body {
 
 .btn-gradient-solid:hover {
   transform: translateY(-4px) scale(1.02);
-  background: linear-gradient(135deg, var(--accent-base), var(--accent-dark));
+  background: linear-gradient(to bottom right, var(--accent-dark), var(--accent-base));
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }
