@@ -1,13 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
+import { useRef, useEffect } from "react";
 
 const timelineEvents = [
   {
@@ -49,9 +42,9 @@ const timelineEvents = [
 ];
 
 export default function TimelineSection() {
-  const container = useRef(null);
+  const container = useRef<HTMLElement>(null);
 
-  useGSAP(() => {
+  useEffect(() => {
     // Hitung posisi garis agar tepat di tengah ikon pertama dan terakhir
     const adjustLine = () => {
       if (!container.current) return;
@@ -76,83 +69,13 @@ export default function TimelineSection() {
     };
 
     // Jalankan kalkulasi posisi garis
-    adjustLine();
+    setTimeout(adjustLine, 100);
     window.addEventListener("resize", adjustLine);
-    ScrollTrigger.addEventListener("refresh", adjustLine);
-
-    // 1. Animasi Header
-    gsap.fromTo(".timeline-header",
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top 85%",
-          once: true // Hanya jalankan sekali
-        }
-      }
-    );
-
-    // 2. Animasi Garis Utama (Scrubbing)
-    gsap.fromTo(".timeline-line-fill",
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".timeline-line-track",
-          start: "top 50%",
-          end: "bottom 50%",
-          scrub: 1,
-          onRefresh: adjustLine // Pastikan garis update saat ScrollTrigger me-refresh
-        }
-      }
-    );
-
-    // 3. Animasi Item (Kartu & Ikon)
-    const items = gsap.utils.toArray(".timeline-item");
-    items.forEach((item: any) => {
-      const card = item.querySelector(".timeline-card");
-      const icon = item.querySelector(".timeline-icon");
-      const targetColor = icon.getAttribute("data-color");
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: "center 55%", // Munculkan tepat saat garis hampir mengenai tengah item
-          toggleActions: "play none none reverse" // Mainkan saat di-scroll ke bawah, reverse (kembali semula) saat di-scroll ke atas
-        }
-      });
-
-      // Animasi Icon: Berubah warna dan membesar sedikit saat tersentuh garis
-      tl.to(icon, {
-        borderColor: targetColor,
-        color: targetColor,
-        scale: 1.15,
-        duration: 0.3,
-        ease: "power2.out"
-      }).to(icon, {
-        scale: 1,
-        duration: 0.3,
-        ease: "back.out(2)"
-      })
-      // Animasi Card Slide-Up
-      .fromTo(card,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-        "-=0.5"
-      );
-    });
 
     return () => {
       window.removeEventListener("resize", adjustLine);
-      ScrollTrigger.removeEventListener("refresh", adjustLine);
     };
-
-  }, { scope: container });
+  }, []);
 
   return (
     <section id="timeline" className="section" ref={container}>
@@ -181,13 +104,13 @@ export default function TimelineSection() {
             return (
               <div key={index} className={`timeline-item ${isLeft ? 'layout-left' : 'layout-right'}`}>
 
-                {/* Ikon Bulat (Awalnya abu-abu, dianimasikan ke warna asli) */}
+                {/* Ikon Bulat */}
                 <div
                   className="timeline-icon"
                   data-color={event.color}
                   style={{
-                    border: "3px solid var(--glass-border)",
-                    color: "var(--text-muted)",
+                    border: `3px solid ${event.color}`,
+                    color: event.color,
                     boxShadow: "var(--shadow-sm)"
                   }}
                 >

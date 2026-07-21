@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -75,12 +75,14 @@ function Countdown({ targetDate }) {
     <div className="countdown-container" style={{ 
       display: "flex", 
       alignItems: "center", 
-      justifyContent: "center",
+      justifyContent: "space-between",
+      width: "100%",
+      boxSizing: "border-box",
       marginTop: "2.5rem",
       background: "var(--bg-main)",
       border: "1px solid var(--glass-border)",
       borderRadius: "9999px",
-      padding: "1rem 0.5rem",
+      padding: "1rem clamp(1rem, 4vw, 2.5rem)",
     }}>
       {[
         { label: "Hari", value: timeLeft.days },
@@ -88,21 +90,21 @@ function Countdown({ targetDate }) {
         { label: "Menit", value: timeLeft.minutes },
         { label: "Detik", value: timeLeft.seconds },
       ].map((item, idx, arr) => (
-        <div key={idx} style={{ display: "flex", alignItems: "center" }}>
-          <div className="countdown-item" style={{ textAlign: "center", minWidth: "4rem" }}>
-            <div className="countdown-value" style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-main)", lineHeight: 1 }}>
+        <React.Fragment key={idx}>
+          <div className="countdown-item" style={{ textAlign: "center", flex: "1 1 0", minWidth: 0 }}>
+            <div className="countdown-value" style={{ fontSize: "clamp(1.1rem, 4vw, 1.5rem)", fontWeight: 700, color: "var(--text-main)", lineHeight: 1 }}>
               {item.value.toString().padStart(2, '0')}
             </div>
-            <div className="countdown-label" style={{ fontSize: "0.6rem", color: "var(--accent-blue)", textTransform: "uppercase", fontWeight: 700, marginTop: "0.4rem", letterSpacing: "0.1em" }}>
+            <div className="countdown-label" style={{ fontSize: "clamp(0.5rem, 1.8vw, 0.65rem)", color: "var(--accent-blue)", textTransform: "uppercase", fontWeight: 700, marginTop: "0.4rem", letterSpacing: "0.1em" }}>
               {item.label}
             </div>
           </div>
           {idx < arr.length - 1 && (
-            <div className="countdown-colon" style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--glass-border)", margin: "0 0.25rem", transform: "translateY(-0.5rem)" }}>
+            <div className="countdown-colon" style={{ fontSize: "clamp(1.1rem, 4vw, 1.5rem)", fontWeight: 700, color: "var(--glass-border)", transform: "translateY(-0.5rem)" }}>
               :
             </div>
           )}
-        </div>
+        </React.Fragment>
       ))}
     </div>
   );
@@ -262,23 +264,22 @@ export default function FeaturesSection() {
             height: 16px !important;
           }
           .countdown-container {
-            padding: 0.5rem 0.25rem !important;
+            padding: 0.75rem 1rem !important;
             margin-top: 1rem !important;
-            border-radius: 12px !important;
+            border-radius: 9999px !important;
           }
           .countdown-item {
-            min-width: 2.5rem !important;
+            min-width: 0 !important;
           }
           .countdown-value {
             font-size: 1.1rem !important;
           }
           .countdown-label {
-            font-size: 0.5rem !important;
+            font-size: 0.55rem !important;
             margin-top: 0.2rem !important;
           }
           .countdown-colon {
-            font-size: 1rem !important;
-            margin: 0 0.1rem !important;
+            font-size: 1.1rem !important;
             transform: translateY(-0.3rem) !important;
           }
           .feature-title {

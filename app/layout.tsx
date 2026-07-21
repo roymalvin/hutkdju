@@ -8,7 +8,7 @@ const raleway = Raleway({
 });
 
 export const metadata = {
-  title: "HUT KDJU 26 — Roots of Revival",
+  title: "HUT KDJU",
   description:
     "Peringatan ulang tahun ke-26 Kamadhis Dharma Jaya UAJY. Mengusung tema Roots of Revival untuk aksi nyata pelestarian lingkungan dan mempererat persaudaraan.",
 };
