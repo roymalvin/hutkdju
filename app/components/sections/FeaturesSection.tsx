@@ -72,7 +72,7 @@ function Countdown({ targetDate }) {
   );
 
   return (
-    <div style={{ 
+    <div className="countdown-container" style={{ 
       display: "flex", 
       alignItems: "center", 
       justifyContent: "center",
@@ -89,16 +89,16 @@ function Countdown({ targetDate }) {
         { label: "Detik", value: timeLeft.seconds },
       ].map((item, idx, arr) => (
         <div key={idx} style={{ display: "flex", alignItems: "center" }}>
-          <div style={{ textAlign: "center", minWidth: "4rem" }}>
-            <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-main)", lineHeight: 1 }}>
+          <div className="countdown-item" style={{ textAlign: "center", minWidth: "4rem" }}>
+            <div className="countdown-value" style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-main)", lineHeight: 1 }}>
               {item.value.toString().padStart(2, '0')}
             </div>
-            <div style={{ fontSize: "0.6rem", color: "var(--accent-blue)", textTransform: "uppercase", fontWeight: 700, marginTop: "0.4rem", letterSpacing: "0.1em" }}>
+            <div className="countdown-label" style={{ fontSize: "0.6rem", color: "var(--accent-blue)", textTransform: "uppercase", fontWeight: 700, marginTop: "0.4rem", letterSpacing: "0.1em" }}>
               {item.label}
             </div>
           </div>
           {idx < arr.length - 1 && (
-            <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--glass-border)", margin: "0 0.25rem", transform: "translateY(-0.5rem)" }}>
+            <div className="countdown-colon" style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--glass-border)", margin: "0 0.25rem", transform: "translateY(-0.5rem)" }}>
               :
             </div>
           )}
@@ -122,33 +122,33 @@ function FeatureCard({ feature, index }) {
 
       {/* Content */}
       <div style={{ flex: 1, zIndex: 1 }}>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "1.25rem", gap: "0.75rem" }}>
-          <h3 style={{ fontSize: "1.75rem", fontWeight: 700, color: "var(--text-main)", margin: 0 }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "1.25rem", gap: "0.75rem" }} className="feature-card-header">
+          <h3 className="feature-card-title" style={{ fontSize: "1.75rem", fontWeight: 700, color: "var(--text-main)", margin: 0 }}>
             {feature.title}
           </h3>
           
           {/* Date Label */}
-          <div style={{
+          <div className="feature-card-date" style={{
             padding: "0.5rem 1rem", borderRadius: "12px",
             background: "var(--bg-main)", color: "var(--text-main)",
             fontSize: "0.75rem", fontWeight: 700, border: "1px solid var(--glass-border)",
             display: "flex", alignItems: "center", gap: "0.4rem"
           }}>
-            <Calendar size={14} style={{ color: feature.gradient }} /> {feature.dateLabel}
+            <Calendar size={14} style={{ color: feature.gradient }} className="feature-icon" /> {feature.dateLabel}
           </div>
         </div>
-        <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: 1.8, marginBottom: "2rem", fontWeight: 400 }}>
+        <p className="feature-card-desc" style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: 1.8, marginBottom: "2rem", fontWeight: 400 }}>
           {feature.description}
         </p>
 
         {/* Location & Time Info */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", borderTop: "1px solid var(--glass-border)", paddingTop: "1.5rem" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem", fontSize: "1.125rem", color: "var(--text-main)", fontWeight: 500 }}>
-            <MapPin size={22} style={{ color: feature.gradient }} />
+        <div className="feature-card-meta" style={{ display: "flex", flexDirection: "column", gap: "1rem", borderTop: "1px solid var(--glass-border)", paddingTop: "1.5rem" }}>
+          <div className="feature-meta-item" style={{ display: "flex", alignItems: "center", gap: "1rem", fontSize: "1.125rem", color: "var(--text-main)", fontWeight: 500 }}>
+            <MapPin size={22} style={{ color: feature.gradient }} className="feature-icon" />
             <span style={{ color: "var(--text-muted)" }}>{feature.location}</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem", fontSize: "1.125rem", color: "var(--text-main)", fontWeight: 500 }}>
-            <Clock size={22} style={{ color: feature.gradient }} />
+          <div className="feature-meta-item" style={{ display: "flex", alignItems: "center", gap: "1rem", fontSize: "1.125rem", color: "var(--text-main)", fontWeight: 500 }}>
+            <Clock size={22} style={{ color: feature.gradient }} className="feature-icon" />
             <span style={{ color: "var(--text-muted)" }}>{feature.time}</span>
           </div>
         </div>
@@ -161,10 +161,10 @@ function FeatureCard({ feature, index }) {
 
       {/* Registration Button */}
       {feature.registrationLink && (
-        <div style={{ zIndex: 1, marginTop: "1.5rem", display: "flex", justifyContent: "center" }}>
+        <div className="feature-card-btn" style={{ zIndex: 1, marginTop: "1.5rem", display: "flex", justifyContent: "center" }}>
           <a 
             href={feature.registrationLink}
-            className="btn-calm btn-gradient-solid"
+            className="btn-calm btn-gradient-solid compact-btn"
             style={{ width: "100%", justifyContent: "center" }}
           >
             Daftar Sekarang
@@ -226,22 +226,70 @@ export default function FeaturesSection() {
         @media (max-width: 768px) {
           .feature-grid {
             display: flex !important;
-            flex-wrap: nowrap !important;
-            overflow-x: auto;
-            justify-content: flex-start !important;
-            padding-bottom: 2rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            gap: 1.5rem !important;
-          }
-          .feature-grid::-webkit-scrollbar {
-            display: none;
+            flex-direction: column !important;
+            gap: 1.25rem !important;
           }
           .feature-card {
-            flex: 0 0 90% !important;
-            padding: 2.5rem 1.5rem !important;
-            scroll-snap-align: center;
+            width: 100% !important;
+            padding: 1.25rem 1rem !important;
+            border-radius: 20px !important;
+          }
+          .feature-card-header {
+            margin-bottom: 0.75rem !important;
+            gap: 0.5rem !important;
+          }
+          .feature-card-title {
+            font-size: 1.35rem !important;
+          }
+          .feature-card-desc {
+            font-size: 0.9rem !important;
+            margin-bottom: 1rem !important;
+            line-height: 1.5 !important;
+          }
+          .feature-card-meta {
+            padding-top: 1rem !important;
+            gap: 0.5rem !important;
+            flex-direction: row !important;
+            justify-content: space-around !important;
+            flex-wrap: wrap !important;
+          }
+          .feature-meta-item {
+            font-size: 0.85rem !important;
+            gap: 0.4rem !important;
+          }
+          .feature-icon {
+            width: 16px !important;
+            height: 16px !important;
+          }
+          .countdown-container {
+            padding: 0.5rem 0.25rem !important;
+            margin-top: 1rem !important;
+            border-radius: 12px !important;
+          }
+          .countdown-item {
+            min-width: 2.5rem !important;
+          }
+          .countdown-value {
+            font-size: 1.1rem !important;
+          }
+          .countdown-label {
+            font-size: 0.5rem !important;
+            margin-top: 0.2rem !important;
+          }
+          .countdown-colon {
+            font-size: 1rem !important;
+            margin: 0 0.1rem !important;
+            transform: translateY(-0.3rem) !important;
+          }
+          .feature-title {
+            font-size: 2rem !important;
+          }
+          .feature-card-btn {
+            margin-top: 1rem !important;
+          }
+          .compact-btn {
+            padding: 0.85rem 1.5rem !important;
+            font-size: 0.95rem !important;
           }
         }
       `}</style>

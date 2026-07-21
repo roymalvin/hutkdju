@@ -113,7 +113,7 @@ export default function DocumentationSection() {
       <div className="container-main relative z-10">
 
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "4rem", position: "relative", zIndex: 20 }}>
+        <div className="doc-header" style={{ textAlign: "center", position: "relative", zIndex: 20 }}>
 
 
           <h2 style={{ fontSize: "clamp(2rem,4vw,3.5rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "1.5rem" }}>
@@ -127,7 +127,7 @@ export default function DocumentationSection() {
         </div>
 
         {/* Masonry Grid */}
-        <div ref={gridRef} className="flex flex-col md:flex-row md:items-center" style={{ gap: "2rem", paddingTop: "6rem", paddingBottom: "6rem" }}>
+        <div ref={gridRef} className="doc-grid flex flex-col md:flex-row md:items-center" style={{ gap: "2rem" }}>
 
           {/* Column 1 */}
           <div className="doc-col-1 flex-1 flex flex-col">
@@ -150,6 +150,26 @@ export default function DocumentationSection() {
       {/* Background Ornaments */}
       <div className="absolute top-[10%] left-[-10%] w-[40vw] h-[40vw] rounded-full blur-[60px] -z-10" style={{ background: "radial-gradient(circle, rgba(0, 163, 255, 0.05) 0%, transparent 70%)" }} />
       <div className="absolute bottom-[10%] right-[-10%] w-[50vw] h-[50vw] rounded-full blur-[60px] -z-10" style={{ background: "radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%)" }} />
+      
+      <style jsx>{`
+        .doc-header {
+          margin-bottom: 4rem;
+        }
+        .doc-grid {
+          padding-top: 6rem;
+          padding-bottom: 6rem;
+        }
+        
+        @media (max-width: 768px) {
+          .doc-header {
+            margin-bottom: 2.5rem !important;
+          }
+          .doc-grid {
+            padding-top: 2rem !important;
+            padding-bottom: 3rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

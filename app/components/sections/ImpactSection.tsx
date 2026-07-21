@@ -65,7 +65,7 @@ export default function ImpactSection() {
           </p>
         </div>
 
-        <div style={{
+        <div className="impact-container" style={{
           display: "flex",
           flexDirection: "column",
           gap: "3rem",
@@ -111,13 +111,13 @@ export default function ImpactSection() {
                 </div>
 
                 <div style={{ textAlign: isEven ? "left" : "right", position: "relative", zIndex: 1, width: "100%" }}>
-                  <div style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", fontWeight: 900, color: "var(--text-main)", lineHeight: 1, marginBottom: "0.5rem", letterSpacing: "-0.03em" }}>
+                  <div className="impact-value" style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", fontWeight: 900, color: "var(--text-main)", lineHeight: 1, marginBottom: "0.5rem", letterSpacing: "-0.03em" }}>
                     {stat.value}
                   </div>
-                  <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-main)", marginBottom: "1rem" }}>
+                  <h3 className="impact-label" style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-main)", marginBottom: "1rem" }}>
                     {stat.label}
                   </h3>
-                  <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", lineHeight: 1.7, margin: 0 }}>
+                  <p className="impact-desc" style={{ color: "var(--text-muted)", fontSize: "1.05rem", lineHeight: 1.7, margin: 0 }}>
                     {stat.desc}
                   </p>
                 </div>
@@ -130,22 +130,35 @@ export default function ImpactSection() {
 
       <style jsx>{`
         @media (max-width: 768px) {
-          .impact-stat-card {
+          .impact-container {
             gap: 1.5rem !important;
-            padding: 2rem 1.5rem !important;
           }
-          .impact-icon-wrapper svg {
-            width: 40px !important;
-            height: 40px !important;
+          .impact-stat-card {
+            flex-direction: row !important;
+            text-align: left !important;
+            gap: 1.25rem !important;
+            padding: 1.5rem !important;
+            align-items: center !important;
           }
-          .impact-stat-card > div:last-child > div:first-child {
-            font-size: 2rem !important;
+          .impact-stat-card > div {
+            text-align: left !important;
           }
-          .impact-stat-card > div:last-child > h3 {
-            font-size: 1.1rem !important;
+          .impact-icon-wrapper {
+            margin-top: 0 !important;
           }
-          .impact-stat-card > div:last-child > p {
-            font-size: 0.85rem !important;
+          .impact-icon-wrapper :global(svg) {
+            width: 36px !important;
+            height: 36px !important;
+          }
+          .impact-value {
+            font-size: 2.25rem !important;
+          }
+          .impact-label {
+            font-size: 1.15rem !important;
+            margin-bottom: 0.5rem !important;
+          }
+          .impact-desc {
+            font-size: 0.9rem !important;
           }
         }
       `}</style>

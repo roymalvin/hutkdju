@@ -217,7 +217,7 @@ export default function SponsorshipSection() {
                   </div>
 
                   {/* Floating Top Icon */}
-                  <div style={{
+                  <div className="floating-icon" style={{
                     position: "absolute", top: "-30px", left: "50%", transform: "translateX(-50%)",
                     width: "60px", height: "60px",
                     background: pkg.color,
@@ -226,15 +226,15 @@ export default function SponsorshipSection() {
                     boxShadow: "var(--shadow-sm)",
                     zIndex: 30,
                   }}>
-                    <Icon size={32} color="#ffffff" />
+                    <Icon className="icon-svg" size={32} color="#ffffff" />
                   </div>
 
                   {/* Header Row */}
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.25rem" }}>
-                    <h3 style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--text-main)", margin: 0 }}>
+                    <h3 className="pkg-title" style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--text-main)", margin: 0 }}>
                       {pkg.name}
                     </h3>
-                    <span style={{
+                    <span className="pkg-tag" style={{
                       background: pkg.color, color: "#ffffff",
                       padding: "0.25rem 0.75rem", borderRadius: "9999px",
                       fontSize: "0.7rem", fontWeight: 800, letterSpacing: "0.05em",
@@ -289,30 +289,47 @@ export default function SponsorshipSection() {
       <style jsx>{`
         @media (max-width: 768px) {
           .sponsor-grid {
-            flex-wrap: nowrap !important;
-            overflow-x: auto;
-            justify-content: flex-start !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 3.5rem !important; /* Jarak antar kartu cukup lebar untuk ikon melayang */
+            padding-top: 2rem;
             padding-bottom: 2rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            /* Hide scrollbar */
-            scrollbar-width: none;
-          }
-          .sponsor-grid::-webkit-scrollbar {
-            display: none;
+            
+            /* Reset edge-to-edge styles */
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            overflow-x: visible;
           }
           .sponsor-card {
-            flex: 0 0 85% !important;
-            max-width: 85% !important;
-            min-width: 280px !important;
-            scroll-snap-align: center;
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: none !important;
           }
-          .sponsor-card > div {
-            padding: 3rem 1.5rem 2.5rem 1.5rem !important;
+          /* Perbaikan padding di mobile agar tidak sempit/kebesaran */
+          .sponsor-card > .glass {
+            padding: 2.5rem 1.5rem 2rem 1.5rem !important;
+            border-radius: 20px;
           }
-          .sponsor-cta a {
-            padding: 1rem 1.5rem !important;
-            font-size: 0.95rem !important;
+          /* Ikon melayang lebih ringkas */
+          .floating-icon {
+            width: 55px !important;
+            height: 55px !important;
+            top: -27.5px !important;
+          }
+          .icon-svg {
+            width: 26px !important;
+            height: 26px !important;
+          }
+          /* Tipografi yang disesuaikan */
+          .pkg-title {
+            font-size: 1.5rem !important;
+          }
+          .pkg-tag {
+            font-size: 0.65rem !important;
+            padding: 0.2rem 0.6rem !important;
           }
         }
       `}</style>

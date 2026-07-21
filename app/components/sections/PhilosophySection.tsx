@@ -49,7 +49,7 @@ export default function PhilosophySection() {
           </p>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "4rem", maxWidth: "1000px", margin: "0 auto" }}>
+        <div className="phil-container" style={{ display: "flex", flexDirection: "column", gap: "4rem", maxWidth: "1000px", margin: "0 auto" }}>
           {philosophyItems.map((item, idx) => {
             const isEven = idx % 2 === 0;
             return (
@@ -67,10 +67,10 @@ export default function PhilosophySection() {
                   border: "1px solid var(--glass-border)",
                   textAlign: isEven ? "left" : "right"
                 }}>
-                  <h3 style={{ fontSize: "1.75rem", fontWeight: 700, color: "var(--text-main)", marginBottom: "1rem" }}>
+                  <h3 className="phil-heading" style={{ fontSize: "1.75rem", fontWeight: 700, color: "var(--text-main)", marginBottom: "1rem" }}>
                     {item.title}
                   </h3>
-                  <p style={{ color: "var(--text-muted)", lineHeight: 1.7, fontSize: "1.05rem" }}>
+                  <p className="phil-desc" style={{ color: "var(--text-muted)", lineHeight: 1.7, fontSize: "1.05rem" }}>
                     {item.description}
                   </p>
                 </div>
@@ -92,7 +92,7 @@ export default function PhilosophySection() {
                     borderRadius: "50%"
                   }} />
 
-                  <div style={{
+                  <div className="phil-img-box" style={{
                     width: "100%", maxWidth: "300px", aspectRatio: "1/1",
                     position: "relative",
                     background: "var(--bg-secondary)",
@@ -129,13 +129,28 @@ export default function PhilosophySection() {
 
       <style jsx>{`
         @media (max-width: 768px) {
+          .phil-container {
+            gap: 2.5rem !important;
+          }
           .phil-row {
-            flex-direction: column !important;
-            text-align: left !important;
-            gap: 2rem !important;
+            flex-direction: column-reverse !important;
+            gap: 1.5rem !important;
           }
           .phil-text {
-            text-align: left !important;
+            text-align: center !important;
+            padding: 1.5rem !important;
+          }
+          .phil-heading {
+            font-size: 1.5rem !important;
+          }
+          .phil-desc {
+            font-size: 0.95rem !important;
+          }
+          .phil-img-container {
+            padding: 0 !important;
+          }
+          .phil-img-box {
+            max-width: 200px !important;
           }
         }
       `}</style>

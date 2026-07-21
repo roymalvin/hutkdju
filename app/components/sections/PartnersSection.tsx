@@ -44,17 +44,16 @@ export default function PartnersSection() {
   }, { scope: container });
 
   return (
-    <section id="partners" className="section" ref={container} style={{ padding: "4rem 0", overflow: "hidden", position: "relative" }}>
+    <section id="partners" className="section" ref={container} style={{ padding: "1.5rem 0 4rem 0", overflow: "hidden", position: "relative" }}>
       {/* Gradient overlays to fade the edges of the scrolling text */}
-      <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "10rem", background: "linear-gradient(to right, var(--bg-main), transparent)", zIndex: 20, pointerEvents: "none" }} />
-      <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "10rem", background: "linear-gradient(to left, var(--bg-main), transparent)", zIndex: 20, pointerEvents: "none" }} />
+      <div className="edge-overlay" style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "10rem", background: "linear-gradient(to right, var(--bg-main), transparent)", zIndex: 20, pointerEvents: "none" }} />
+      <div className="edge-overlay" style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "10rem", background: "linear-gradient(to left, var(--bg-main), transparent)", zIndex: 20, pointerEvents: "none" }} />
       
       <div className="container-main" style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-        {/* Removed main title per user request */}
       </div>
 
       {/* Sponsor Section */}
-      <div style={{ marginBottom: "3rem" }}>
+      <div style={{ marginBottom: "1.5rem" }}>
         <div className="container-main partner-title" style={{ textAlign: "center", position: "relative", zIndex: 10 }}>
           <h3 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, color: "var(--text-main)", letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
             Sponsor <span className="gradient-text">Resmi</span>
@@ -64,9 +63,9 @@ export default function PartnersSection() {
           </p>
         </div>
         <div style={{ overflow: "hidden", display: "flex", whiteSpace: "nowrap", position: "relative", zIndex: 10, padding: "3rem 0", marginTop: "-1rem" }}>
-          <div className="animate-marquee" style={{ display: "flex", gap: "2rem", paddingRight: "2rem" }}>
+          <div className="animate-marquee marquee-flex" style={{ display: "flex", gap: "2rem", paddingRight: "2rem" }}>
             {duplicatedSponsors.map((partner, i) => (
-              <div key={`sponsor-${i}`} className="glass" style={{
+              <div key={`sponsor-${i}`} className="sponsor-card glass" style={{
                 position: "relative",
                 padding: "1.5rem", borderRadius: "24px", fontSize: "1.5rem", fontWeight: 800,
                 minWidth: "300px", height: "140px",
@@ -75,26 +74,15 @@ export default function PartnersSection() {
                 boxShadow: `0 10px 30px ${partner.color}20`,
                 background: "linear-gradient(135deg, var(--bg-secondary), var(--bg-main))", display: "inline-flex", alignItems: "center", justifyContent: "center",
               }}>
-                {/* External magical particles for Samudra */}
                 {partner.package === "Samudra" && <FloatingWaterParticles color={partner.color} />}
                 <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", overflow: "hidden", borderRadius: "inherit", pointerEvents: "none" }}>
-                  {/* Trik transform scale agar efeknya terlihat 'versi kecil' di dalam kotak yang lebih kecil */}
                   <div style={{ position: "absolute", top: "50%", left: "50%", width: "200%", height: "200%", transform: "translate(-50%, -50%) scale(0.5)" }}>
                     {partner.package === "Samudra" ? (
-                      <>
-                        <AnimatedClouds color={partner.color} scaleMultiplier={1.8} />
-                        <OceanWaves color={partner.color} />
-                      </>
+                      <><AnimatedClouds color={partner.color} scaleMultiplier={1.8} /><OceanWaves color={partner.color} /></>
                     ) : partner.package === "Gunung" ? (
-                      <>
-                        <AnimatedClouds color={partner.color} />
-                        <MountainWind color={partner.color} />
-                      </>
+                      <><AnimatedClouds color={partner.color} /><MountainWind color={partner.color} /></>
                     ) : partner.package === "Rimba" ? (
-                      <div style={{ opacity: 0.55 }}>
-                        <AnimatedBirds color={partner.color} />
-                        <ForestMist color={partner.color} />
-                      </div>
+                      <div style={{ opacity: 0.55 }}><AnimatedBirds color={partner.color} /><ForestMist color={partner.color} /></div>
                     ) : partner.package === "Lembah" ? (
                       <ValleyMeadow color={partner.color} />
                     ) : partner.package === "Pesisir" ? (
@@ -112,7 +100,7 @@ export default function PartnersSection() {
       </div>
 
       {/* Visual Divider */}
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", marginBottom: "4rem", opacity: 0.1 }}>
+      <div style={{ width: "100%", display: "flex", justifyContent: "center", marginBottom: "1.5rem", opacity: 0.1 }}>
         <div style={{ width: "min(600px, 80%)", height: "1px", background: "linear-gradient(90deg, transparent, var(--text-main), transparent)" }} />
       </div>
 
@@ -124,9 +112,9 @@ export default function PartnersSection() {
           </h4>
         </div>
         <div style={{ overflow: "hidden", display: "flex", whiteSpace: "nowrap", position: "relative", zIndex: 10.7, padding: "3rem 0", marginTop: "-1rem" }}>
-          <div className="animate-marquee-reverse" style={{ display: "flex", gap: "1rem", paddingRight: "1rem" }}>
+          <div className="animate-marquee-reverse marquee-flex" style={{ display: "flex", gap: "1rem", paddingRight: "1rem" }}>
             {duplicatedMediaPartners.map((partner, i) => (
-              <div key={`media-${i}`} className="glass" style={{
+              <div key={`media-${i}`} className="media-card glass" style={{
                 padding: "1rem", borderRadius: "20px", fontSize: "1rem", fontWeight: 600,
                 minWidth: "220px", height: "100px",
                 color: "var(--text-muted)", border: "1px solid var(--glass-border)",
@@ -139,7 +127,31 @@ export default function PartnersSection() {
         </div>
       </div>
 
-
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .sponsor-card {
+            min-width: 160px !important;
+            height: 90px !important;
+            padding: 1rem !important;
+            font-size: 1.1rem !important;
+            border-radius: 16px !important;
+          }
+          .media-card {
+            min-width: 140px !important;
+            height: 70px !important;
+            padding: 0.75rem !important;
+            font-size: 0.85rem !important;
+            border-radius: 14px !important;
+          }
+          .marquee-flex {
+            gap: 1rem !important;
+            padding-right: 1rem !important;
+          }
+          .edge-overlay {
+            width: 4rem !important; /* Kurangi efek pudar di sisi layar mobile agar konten lebih jelas */
+          }
+        }
+      `}</style>
 
     </section>
   );

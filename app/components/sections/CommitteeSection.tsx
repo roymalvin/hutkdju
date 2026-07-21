@@ -231,7 +231,7 @@ export default function CommitteeSection() {
                   transformOrigin: "center center"
                 }}
               >
-                <div style={{
+                <div className="icon-container" style={{
                   width: "90px",
                   height: "90px",
                   borderRadius: "50%",
@@ -242,7 +242,7 @@ export default function CommitteeSection() {
                   color: "var(--accent-base)",
                   marginBottom: "1rem"
                 }}>
-                  <Users size={40} />
+                  <Users className="committee-icon" size={40} />
                 </div>
                 <div>
                   <h3 style={{ fontSize: "1.125rem", fontWeight: 700, color: "var(--text-main)", marginBottom: "0.25rem", lineHeight: 1.3 }}>
@@ -251,7 +251,7 @@ export default function CommitteeSection() {
                   <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>
                     {member.npm}
                   </p>
-                  <p style={{ fontSize: "0.9rem", color: "var(--accent-base)", fontWeight: 600, lineHeight: 1.4 }}>
+                  <p className="committee-role" style={{ fontSize: "0.9rem", color: "var(--accent-base)", fontWeight: 600, lineHeight: 1.4 }}>
                     {member.role}
                   </p>
                 </div>
@@ -263,11 +263,31 @@ export default function CommitteeSection() {
       <style jsx>{`
         @media (max-width: 768px) {
           .committee-scroll {
-            padding: 2rem calc(50vw - 120px) 4rem calc(50vw - 120px) !important;
+            padding: 2rem calc(50vw - 90px) 4rem calc(50vw - 90px) !important;
+            gap: 1.25rem !important; /* Kurangi jarak antar kartu */
           }
           .committee-card {
-            min-width: 240px !important;
-            padding: 1.5rem !important;
+            min-width: 180px !important; /* Kartu jadi lebih ramping */
+            padding: 1.5rem 1rem !important;
+            gap: 0.5rem !important;
+          }
+          .icon-container {
+            width: 64px !important;
+            height: 64px !important;
+            margin-bottom: 0.5rem !important;
+          }
+          :global(.committee-icon) {
+            width: 28px !important;
+            height: 28px !important;
+          }
+          .committee-card h3 {
+            font-size: 1rem !important;
+          }
+          .committee-card p {
+            font-size: 0.75rem !important;
+          }
+          .committee-role {
+            font-size: 0.8rem !important;
           }
         }
       `}</style>

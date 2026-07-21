@@ -165,12 +165,34 @@ export default function AboutSection() {
 
         @media (max-width: 900px) {
           .bento-grid {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
           }
           .card-large, .card-highlight {
-            grid-column: span 1;
-            grid-row: span 1;
+            grid-column: span 2;
+            grid-row: auto;
+          }
+          .bento-card {
+            padding: 1.5rem;
+            gap: 0.75rem;
+          }
+          .bento-heading {
+            font-size: 1.25rem;
+          }
+          .bento-text {
+            font-size: 0.95rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .bento-card {
+            padding: 1.25rem;
+          }
+          .bento-heading {
+            font-size: 1.1rem;
+          }
+          .bento-text {
+            font-size: 0.85rem;
           }
         }
       `}</style>

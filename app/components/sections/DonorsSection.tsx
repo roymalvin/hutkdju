@@ -31,7 +31,7 @@ export default function DonorsSection() {
     <section id="donors" className="section" ref={container} style={{ padding: "4rem 0" }}>
       <div className="container-main" style={{ position: "relative", zIndex: 10 }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           {/* Badge removed per user request */}
 
           <h2
@@ -56,7 +56,6 @@ export default function DonorsSection() {
         >
           {Array.from({ length: 12 }).map((_, i) => (
             <div key={i} className="glass donor-item" style={{
-              
               display: "inline-flex", alignItems: "center", gap: "0.5rem",
               padding: "0.625rem 1.25rem", borderRadius: "9999px", fontSize: "0.875rem", fontWeight: 500,
               color: "var(--text-main)", border: "1px solid var(--glass-border)", boxShadow: "var(--shadow-sm)",

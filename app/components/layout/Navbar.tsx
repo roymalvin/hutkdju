@@ -47,8 +47,20 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (mobileOpen) {
+      // Hitung lebar scrollbar agar layar tidak bergeser/melebar saat di-hidden
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+    
+    return () => { 
+      document.body.style.overflow = ""; 
+      document.body.style.paddingRight = "";
+    };
   }, [mobileOpen]);
 
 
@@ -173,13 +185,15 @@ export default function Navbar() {
               <ThemeToggle />
               <button
                 className="nav-mobile-btn"
-                onClick={() => setMobileOpen(true)}
+                onClick={() => setMobileOpen(!mobileOpen)}
                 style={{
                   background: "transparent", border: "none", color: "var(--text-main)",
-                  fontSize: "1.5rem", cursor: "pointer", padding: "0.5rem"
+                  fontSize: "1.5rem", cursor: "pointer", padding: "0.5rem",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  width: "2.5rem", height: "2.5rem"
                 }}
               >
-                <Menu size={24} />
+                {mobileOpen ? <span style={{ fontSize: "1.5rem", lineHeight: 1 }}>✕</span> : <Menu size={24} />}
               </button>
             </div>
           </div>
@@ -191,51 +205,52 @@ export default function Navbar() {
         <div
           ref={mobileMenuRef}
           style={{
-            position: "fixed", inset: 0, zIndex: 60,
+            position: "fixed", top: "5rem", left: 0, right: 0, bottom: 0, zIndex: 40,
             background: "var(--bg-main)",
-            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"
+            borderTop: "1px solid var(--glass-border)",
+            display: "flex", flexDirection: "column",
+            overflowY: "auto"
           }}
         >
-          <button
-            onClick={() => setMobileOpen(false)}
-            style={{
-              position: "absolute", top: "1.5rem", right: "1.5rem",
-              background: "var(--bg-secondary)", border: "none", color: "var(--text-main)",
-              boxShadow: "var(--shadow-sm)",
-              width: "3rem", height: "3rem", borderRadius: "50%",
-              fontSize: "1.25rem", cursor: "pointer",
-              display: "flex", alignItems: "center", justifyContent: "center"
-            }}
-          >
-            ✕
-          </button>
-
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "0.5rem", alignItems: "center", width: "100%", maxHeight: "80vh", overflowY: "auto", padding: "2rem 0" }}
-          >
+          <div style={{ display: "flex", flexDirection: "column", width: "100%", paddingBottom: "2rem" }}>
             {navLinks.map((link) => (
-              <div key={link.name} className="flex flex-col items-center w-full my-2">
+              <div key={link.name} className="flex flex-col w-full">
                 {link.href ? (
                   <a
                     href={link.href}
                     className="mobile-link"
                     onClick={() => setMobileOpen(false)}
-                    style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-main)", textDecoration: "none", opacity: 0 }}
+                    style={{ 
+                      padding: "1.25rem 1.5rem", 
+                      fontSize: "1.125rem", fontWeight: 600, color: "var(--text-main)", 
+                      textDecoration: "none", borderBottom: "1px solid var(--glass-border)",
+                      opacity: 0 
+                    }}
                   >
                     {link.name}
                   </a>
                 ) : (
                   <>
-                    <div className="mobile-link" style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--accent-blue)", opacity: 0, marginBottom: "0.5rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                    <div className="mobile-link" style={{ 
+                      padding: "1.25rem 1.5rem 0.5rem 1.5rem", 
+                      fontSize: "0.875rem", fontWeight: 700, color: "var(--accent-base)", 
+                      textTransform: "uppercase", letterSpacing: "0.05em", opacity: 0 
+                    }}>
                       {link.name}
                     </div>
-                    {link.dropdown?.map(sub => (
+                    {link.dropdown?.map((sub, idx) => (
                       <a
                         key={sub.name}
                         href={sub.href}
                         className="mobile-link"
                         onClick={() => setMobileOpen(false)}
-                        style={{ fontSize: "1.125rem", fontWeight: 500, color: "var(--text-main)", textDecoration: "none", opacity: 0, padding: "0.3rem 0" }}
+                        style={{ 
+                          padding: "0.75rem 1.5rem 0.75rem 2.5rem", 
+                          fontSize: "1rem", fontWeight: 500, color: "var(--text-main)", 
+                          textDecoration: "none", 
+                          borderBottom: idx === link.dropdown.length - 1 ? "1px solid var(--glass-border)" : "none",
+                          opacity: 0 
+                        }}
                       >
                         {sub.name}
                       </a>
@@ -245,16 +260,19 @@ export default function Navbar() {
               </div>
             ))}
 
-            <a
-              href="#donors"
-              className="mobile-link btn-calm btn-gradient-solid"
-              onClick={() => setMobileOpen(false)}
-              style={{
-                marginTop: "1.5rem", opacity: 0
-              }}
-            >
-              Hubungi Kami
-            </a>
+            <div style={{ padding: "1.5rem" }}>
+              <a
+                href="#donors"
+                className="mobile-link btn-calm btn-gradient-solid"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  display: "block", textAlign: "center", padding: "1rem", 
+                  fontSize: "1rem", borderRadius: "12px", opacity: 0
+                }}
+              >
+                Hubungi Kami
+              </a>
+            </div>
           </div>
         </div>
       )}

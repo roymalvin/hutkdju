@@ -91,7 +91,7 @@ export default function FaqSection() {
         </div>
 
         {/* FAQ List */}
-        <div style={{ maxWidth: "48rem", margin: "0 auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <div className="faq-list" style={{ maxWidth: "48rem", margin: "0 auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
           {faqs.map((faq, i) => (
             <div
               key={i}
@@ -104,6 +104,7 @@ export default function FaqSection() {
               }}
             >
               <button
+                className="faq-btn"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 style={{
                   width: "100%", padding: "1.5rem", display: "flex", justifyContent: "space-between",
@@ -111,15 +112,16 @@ export default function FaqSection() {
                   textAlign: "left"
                 }}
               >
-                <span style={{ fontSize: "1.125rem", fontWeight: 600, color: "var(--text-main)" }}>
+                <span className="faq-question" style={{ fontSize: "1.125rem", fontWeight: 600, color: "var(--text-main)" }}>
                   {faq.question}
                 </span>
-                <div style={{
+                <div className="faq-icon" style={{
                   width: "2rem", height: "2rem", borderRadius: "50%",
                   background: "var(--bg-accent-subtle)", display: "flex", alignItems: "center", justifyContent: "center",
                   color: "var(--accent-base)", transition: "transform 0.3s",
                   border: "none", boxShadow: "var(--shadow-sm)",
-                  transform: openIndex === i ? "rotate(180deg)" : "rotate(0deg)"
+                  transform: openIndex === i ? "rotate(180deg)" : "rotate(0deg)",
+                  flexShrink: 0
                 }}>
                   <ChevronDown size={16} />
                 </div>
@@ -131,7 +133,7 @@ export default function FaqSection() {
                 overflow: "hidden",
                 transition: "all 0.3s ease-in-out"
               }}>
-                <div style={{ padding: "0 1.5rem 1.5rem 1.5rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
+                <div className="faq-answer-inner" style={{ padding: "0 1.5rem 1.5rem 1.5rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
                   {faq.answer}
                 </div>
               </div>
@@ -139,6 +141,30 @@ export default function FaqSection() {
           ))}
         </div>
       </div>
+      
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .faq-list {
+            padding: 0 0.5rem;
+          }
+          .faq-btn {
+            padding: 1.25rem 1rem !important;
+            gap: 1rem !important;
+          }
+          .faq-question {
+            font-size: 1rem !important;
+            line-height: 1.4 !important;
+          }
+          .faq-icon {
+            width: 1.75rem !important;
+            height: 1.75rem !important;
+          }
+          .faq-answer-inner {
+            padding: 0 1rem 1.25rem 1rem !important;
+            font-size: 0.9rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
