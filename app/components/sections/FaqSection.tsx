@@ -17,7 +17,11 @@ const faqs = [
   },
   {
     question: "Apa itu Revival Planting X Tree of Heart?",
-    answer: "Revival Planting X Tree of Heart adalah kegiatan utama dari HUT KDJU 26 berupa penanaman bibit mangrove di daerah pesisir. Tujuannya adalah untuk memulihkan ekosistem dan mencegah ancaman abrasi secara berkelanjutan."
+    answer: "Revival Planting X Tree of Heart adalah salah rangkaian acara dari HUT KDJU 26 berupa penanaman bibit mangrove di daerah pesisir. Tujuannya adalah untuk memulihkan ekosistem dan mencegah ancaman abrasi secara berkelanjutan."
+  },
+  {
+    question: "Siapa Tree of Heart?",
+    answer: "Tree of Heart (TOH) adalah organisasi lingkungan yang bergerak lebih dari sekadar menanam pohon. Mereka tidak hanya merawat dan memastikan setiap pohon dapat tumbuh dengan baik, tetapi juga berdedikasi tinggi untuk memberdayakan serta memperhatikan kesejahteraan masyarakat di sekitarnya."
   },
   {
     question: "Siapa saja yang bisa mengikuti acara Birthday Party?",
@@ -141,7 +145,7 @@ export default function FaqSection() {
           ))}
         </div>
       </div>
-      
+
       <style jsx>{`
         @media (max-width: 768px) {
           .faq-list {
