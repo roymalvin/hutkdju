@@ -84,63 +84,20 @@ export default function Navbar() {
             {/* Desktop Links */}
             <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
               {navLinks.map((link) => (
-                <div key={link.name} className={link.dropdown ? "relative group" : ""}>
-                  {link.href ? (
-                    <a
-                      href={link.href}
-                      style={{
-                        padding: "0.5rem 1rem", borderRadius: "9999px",
-                        fontSize: "0.875rem", fontWeight: 500,
-                        color: "var(--text-main)", textDecoration: "none",
-                        transition: "all 0.3s", display: "inline-block"
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.background = "var(--bg-secondary)"}
-                      onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <div
-                      style={{
-                        padding: "0.5rem 1rem", borderRadius: "9999px",
-                        fontSize: "0.875rem", fontWeight: 500,
-                        color: "var(--text-main)", cursor: "pointer",
-                        transition: "all 0.3s", display: "inline-flex", alignItems: "center", gap: "0.25rem"
-                      }}
-                      className="group-hover:bg-[var(--bg-secondary)]"
-                    >
-                      {link.name} <span className="text-[10px] opacity-70">▼</span>
-                    </div>
-                  )}
-
-                  {/* Dropdown Menu */}
-                  {link.dropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                      <div className="py-2 rounded-2xl shadow-xl overflow-hidden" style={{ background: "var(--nav-bg)", border: "1px solid var(--glass-border)", backdropFilter: "blur(20px)" }}>
-                        {link.dropdown.map(sub => (
-                          <a
-                            key={sub.name}
-                            href={sub.href}
-                            style={{
-                              display: "block", padding: "0.5rem 1.25rem",
-                              fontSize: "0.875rem", color: "var(--text-muted)",
-                              textDecoration: "none", transition: "all 0.2s"
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.color = "var(--text-main)";
-                              e.currentTarget.style.background = "var(--bg-secondary)";
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.color = "var(--text-muted)";
-                              e.currentTarget.style.background = "transparent";
-                            }}
-                          >
-                            {sub.name}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                <div key={link.name}>
+                  <a
+                    href={link.href}
+                    style={{
+                      padding: "0.5rem 1rem", borderRadius: "9999px",
+                      fontSize: "0.875rem", fontWeight: 500,
+                      color: "var(--text-main)", textDecoration: "none",
+                      transition: "all 0.3s", display: "inline-block"
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = "var(--bg-secondary)"}
+                    onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                  >
+                    {link.name}
+                  </a>
                 </div>
               ))}
 
@@ -194,48 +151,19 @@ export default function Navbar() {
           <div style={{ display: "flex", flexDirection: "column", width: "100%", paddingBottom: "2rem" }}>
             {navLinks.map((link) => (
               <div key={link.name} className="flex flex-col w-full">
-                {link.href ? (
-                  <a
-                    href={link.href}
-                    className="mobile-link"
-                    onClick={() => setMobileOpen(false)}
-                    style={{
-                      padding: "1.25rem 1.5rem",
-                      fontSize: "1.125rem", fontWeight: 600, color: "var(--text-main)",
-                      textDecoration: "none", borderBottom: "1px solid var(--glass-border)",
-                      opacity: 0
-                    }}
-                  >
-                    {link.name}
-                  </a>
-                ) : (
-                  <>
-                    <div className="mobile-link" style={{
-                      padding: "1.25rem 1.5rem 0.5rem 1.5rem",
-                      fontSize: "0.875rem", fontWeight: 700, color: "var(--accent-base)",
-                      textTransform: "uppercase", letterSpacing: "0.05em", opacity: 0
-                    }}>
-                      {link.name}
-                    </div>
-                    {link.dropdown?.map((sub, idx) => (
-                      <a
-                        key={sub.name}
-                        href={sub.href}
-                        className="mobile-link"
-                        onClick={() => setMobileOpen(false)}
-                        style={{
-                          padding: "0.75rem 1.5rem 0.75rem 2.5rem",
-                          fontSize: "1rem", fontWeight: 500, color: "var(--text-main)",
-                          textDecoration: "none",
-                          borderBottom: idx === link.dropdown.length - 1 ? "1px solid var(--glass-border)" : "none",
-                          opacity: 0
-                        }}
-                      >
-                        {sub.name}
-                      </a>
-                    ))}
-                  </>
-                )}
+                <a
+                  href={link.href}
+                  className="mobile-link"
+                  onClick={() => setMobileOpen(false)}
+                  style={{
+                    padding: "1.25rem 1.5rem",
+                    fontSize: "1.125rem", fontWeight: 600, color: "var(--text-main)",
+                    textDecoration: "none", borderBottom: "1px solid var(--glass-border)",
+                    opacity: 0
+                  }}
+                >
+                  {link.name}
+                </a>
               </div>
             ))}
 
