@@ -14,7 +14,6 @@ import CoastalBeach from "../ui/CoastalBeach";
 import AnimatedClouds from "../ui/AnimatedClouds";
 import AnimatedBirds from "../ui/AnimatedBirds";
 import FloatingWaterParticles from "../ui/FloatingWaterParticles";
-import QRCode from "react-qr-code";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -131,7 +130,7 @@ export default function SponsorshipSection() {
 
           <div
             className="sponsor-cta"
-            style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2rem" }}
+            style={{}}
           >
             <a
               href="/proposal-sponsorship-kdju26.pdf"
@@ -140,16 +139,6 @@ export default function SponsorshipSection() {
             >
               <FileText size={20} /> Unduh Proposal Lengkap (PDF)
             </a>
-
-            {/* QR Code Section */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem" }}>
-              <div style={{ background: "white", padding: "1rem", borderRadius: "16px", display: "inline-block", boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}>
-                <QRCode value="https://hutkjdu.site/#partners" size={120} />
-              </div>
-              <p style={{ fontSize: "0.875rem", color: "var(--text-muted)", fontWeight: 500, textAlign: "center" }}>
-                Scan untuk melihat<br/>Daftar Sponsor Resmi
-              </p>
-            </div>
           </div>
         </div>
 
