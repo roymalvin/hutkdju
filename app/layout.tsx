@@ -11,6 +11,7 @@ export const metadata = {
   title: "HUT KDJU",
   description:
     "Peringatan ulang tahun ke-26 Kamadhis Dharma Jaya UAJY. Mengusung tema Roots of Revival untuk aksi nyata pelestarian lingkungan dan mempererat persaudaraan.",
+  keywords: ["hut kdju", "hutkdju", "kdju uajy", "kamadhis dharma jaya", "uajy", "kamadhis"],
 };
 
 
