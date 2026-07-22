@@ -16,8 +16,6 @@ export const metadata = {
 
 
 import SmoothScroll from "./components/ui/SmoothScroll";
-import TrailCursor from "./components/ui/TrailCursor";
-
 export default function RootLayout({ children }) {
   return (
     <html
@@ -25,7 +23,7 @@ export default function RootLayout({ children }) {
       className={`${raleway.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           {/* Global Soft Glow Background Blobs */}
           <div style={{
@@ -36,7 +34,6 @@ export default function RootLayout({ children }) {
             position: "fixed", bottom: "-10%", right: "-5%", width: "60vw", height: "60vw",
             background: "radial-gradient(circle, var(--accent-blue) 0%, transparent 60%)", opacity: 0.15, filter: "blur(80px)", pointerEvents: "none", zIndex: -1
           }} />
-          <TrailCursor />
           <SmoothScroll>
             {children}
           </SmoothScroll>

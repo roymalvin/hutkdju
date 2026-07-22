@@ -125,7 +125,7 @@ export default function SponsorshipSection() {
             className="sponsor-desc"
             style={{ maxWidth: "42rem", margin: "0 auto", fontSize: "1.125rem", color: "var(--text-muted)", lineHeight: 1.7, marginBottom: "2rem" }}
           >
-            Mari menjadi bagian dari perubahan! Dukungan Anda akan dialokasikan langsung untuk operasional Revival Planting, perawatan mangrove, serta mensukseskan Birthday Party KDJU 26.
+            Mari menjadi bagian dari perubahan! Dukungan Anda akan dialokasikan langsung untuk operasional Revival Planting, serta mensukseskan Birthday Party.
           </p>
 
           <div

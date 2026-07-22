@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { FileText, UserPlus, Heart } from "lucide-react";
+import { Handshake, UserPlus, Heart } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -49,9 +49,9 @@ export default function CtaSection() {
               alignItems: "center"
             }}>
 
-              <a 
-                href="#features" 
-                className="btn-calm btn-calm-secondary" 
+              <a
+                href="/#features"
+                className="btn-calm btn-calm-secondary"
                 style={{
                   padding: "1rem 2rem",
                   fontSize: "1.05rem",
@@ -62,23 +62,31 @@ export default function CtaSection() {
                 <UserPlus size={20} /> Daftar Peserta
               </a>
 
-              <button className="btn-calm btn-calm-secondary" style={{
-                padding: "1rem 2rem",
-                fontSize: "1.05rem",
-                width: "100%",
-                maxWidth: "280px"
-              }}>
-                <FileText size={20} /> Proposal Sponsor
-              </button>
+              <a
+                href="/dukungan"
+                className="btn-calm btn-calm-secondary"
+                style={{
+                  padding: "1rem 2rem",
+                  fontSize: "1.05rem",
+                  width: "100%",
+                  maxWidth: "280px"
+                }}
+              >
+                <Handshake size={20} /> Dukung Kami
+              </a>
 
-              <button className="btn-calm btn-calm-secondary" style={{
-                padding: "1rem 2rem",
-                fontSize: "1.05rem",
-                width: "100%",
-                maxWidth: "280px"
-              }}>
+              <a 
+                href="/#donors"
+                className="btn-calm btn-calm-secondary" 
+                style={{
+                  padding: "1rem 2rem",
+                  fontSize: "1.05rem",
+                  width: "100%",
+                  maxWidth: "280px"
+                }}
+              >
                 <Heart size={20} /> Berdonasi
-              </button>
+              </a>
 
             </div>
           </div>

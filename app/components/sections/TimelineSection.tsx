@@ -4,39 +4,39 @@ import { useRef, useEffect } from "react";
 
 const timelineEvents = [
   {
-    date: "TBA",
+    date: "26 Jul - 13 Sep 2026",
     title: "Open Donation",
-    description: "Pembukaan pengumpulan dana donasi untuk mendukung kegiatan Revival Planting.",
+    description: "Pengumpulan dana donasi untuk mendukung kegiatan Revival Planting.",
     color: "var(--accent-base)"
   },
   {
-    date: "TBA",
-    title: "Close Donation",
-    description: "Penutupan pengumpulan donasi.",
+    date: "26 Jul - 13 Sep 2026",
+    title: "Open Registration Volunteer",
+    description: "Pendaftaran volunteer untuk kegiatan penanaman mangrove (Revival Planting).",
     color: "var(--accent-base)"
   },
   {
-    date: "TBA",
-    title: "Open Registration for Revival Planting",
-    description: "Pendaftaran peserta untuk kegiatan penanaman mangrove.",
+    date: "27 Agu - 23 Sep 2026",
+    title: "Open Registration Birthday Party",
+    description: "Pendaftaran peserta untuk menghadiri acara puncak perayaan ulang tahun (Birthday Party).",
     color: "var(--accent-base)"
   },
   {
-    date: "TBA",
-    title: "Close Registration for Revival Planting",
-    description: "Penutupan pendaftaran kegiatan penanaman mangrove.",
+    date: "16 September 2026",
+    title: "Technical Meeting",
+    description: "Pembekalan teknis bagi para volunteer Revival Planting.",
     color: "var(--accent-base)"
   },
   {
-    date: "TBA",
-    title: "Open Registration for Birthday Party",
-    description: "Pendaftaran untuk menghadiri acara puncak perayaan ulang tahun.",
+    date: "20 September 2026",
+    title: "Revival Planting",
+    description: "Hari H pelaksanaan penanaman mangrove (Revival Planting).",
     color: "var(--accent-base)"
   },
   {
-    date: "TBA",
-    title: "Close Registration for Birthday Party",
-    description: "Batas akhir pendaftaran acara puncak ulang tahun.",
+    date: "Sabtu, 26 September 2026",
+    title: "Birthday Party",
+    description: "Acara puncak perayaan ulang tahun KDJU ke-26.",
     color: "var(--accent-base)"
   }
 ];
@@ -52,15 +52,15 @@ export default function TimelineSection() {
       const track = container.current.querySelector('.timeline-line-track') as HTMLElement;
       const fill = container.current.querySelector('.timeline-line-fill') as HTMLElement;
       const timelineContainer = container.current.querySelector('.timeline-container') as HTMLElement;
-      
+
       if (icons.length > 0 && track && fill && timelineContainer) {
         const containerRect = timelineContainer.getBoundingClientRect();
         const firstRect = icons[0].getBoundingClientRect();
         const lastRect = icons[icons.length - 1].getBoundingClientRect();
-        
+
         const topOffset = firstRect.top + (firstRect.height / 2) - containerRect.top;
         const bottomOffset = containerRect.bottom - (lastRect.top + (lastRect.height / 2));
-        
+
         track.style.top = `${topOffset}px`;
         track.style.bottom = `${bottomOffset}px`;
         fill.style.top = `${topOffset}px`;
@@ -122,7 +122,7 @@ export default function TimelineSection() {
                   <div className="timeline-card glass">
                     <span
                       className="timeline-date"
-                      style={{ color: event.color, background: "var(--bg-secondary)" }}
+                      style={{ color: event.color }}
                     >
                       {event.date}
                     </span>
@@ -219,12 +219,12 @@ export default function TimelineSection() {
         }
 
         .timeline-date {
-          display: inline-block;
-          font-weight: 700;
-          font-size: 0.8rem;
-          margin-bottom: 0.75rem;
-          padding: 0.25rem 0.875rem;
-          border-radius: 2rem;
+          display: block;
+          font-weight: 800; /* Dibuat sedikit lebih tebal untuk mengganti hilangnya kapsul */
+          font-size: 0.85rem;
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
         }
 
         .timeline-card h3 {
@@ -281,6 +281,12 @@ export default function TimelineSection() {
           /* Merapikan teks sisi kiri agar menempel ke poros tengah */
           .timeline-item.layout-left .timeline-card {
             text-align: right;
+            align-items: flex-end;
+          }
+          
+          .timeline-item.layout-right .timeline-card {
+            text-align: left;
+            align-items: flex-start;
           }
 
           .timeline-card:hover {
@@ -294,9 +300,8 @@ export default function TimelineSection() {
           }
 
           .timeline-date {
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            padding: 0.35rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
           }
 
           .timeline-card p {

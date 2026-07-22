@@ -7,31 +7,10 @@ import { useGSAP } from "@gsap/react";
 import ThemeToggle from "../ui/ThemeToggle";
 
 const navLinks = [
-  { name: "Beranda", href: "#hero" },
-  {
-    name: "Tentang",
-    dropdown: [
-      { name: "Tentang Kami", href: "#about" },
-      { name: "Pencapaian", href: "#impact" },
-      { name: "Susunan Panitia", href: "#committee" },
-    ]
-  },
-  {
-    name: "Kegiatan",
-    dropdown: [
-      { name: "Program Acara", href: "#features" },
-      { name: "Memory Lane", href: "#documentation" },
-    ]
-  },
-  {
-    name: "Dukungan",
-    dropdown: [
-      { name: "Sponsorship", href: "#sponsorship" },
-      { name: "Mitra Kolaborasi", href: "#partners" },
-      { name: "Daftar Donatur", href: "#donors" },
-    ]
-  },
-  { name: "FAQ", href: "#faq" },
+  { name: "Beranda", href: "/" },
+  { name: "Tentang", href: "/tentang" },
+  { name: "Sponsorship", href: "/dukungan" },
+  { name: "FAQ", href: "/faq" },
 ];
 
 export default function Navbar() {
@@ -56,9 +35,9 @@ export default function Navbar() {
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
     }
-    
-    return () => { 
-      document.body.style.overflow = ""; 
+
+    return () => {
+      document.body.style.overflow = "";
       document.body.style.paddingRight = "";
     };
   }, [mobileOpen]);
@@ -93,7 +72,7 @@ export default function Navbar() {
           <div style={{ display: "flex", alignItems: "center", justifyItems: "space-between", justifyContent: "space-between", height: "5rem" }}>
             {/* Logo */}
             <a
-              href="#hero"
+              href="/"
               style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none", transition: "transform 0.3s" }}
               onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.02)"}
               onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
@@ -167,7 +146,7 @@ export default function Navbar() {
 
               <div style={{ marginLeft: "1rem" }}>
                 <a
-                  href="#donors"
+                  href="/#donors"
                   className="btn-calm btn-gradient-solid"
                   style={{
                     padding: "0.5rem 1.25rem",
@@ -220,21 +199,21 @@ export default function Navbar() {
                     href={link.href}
                     className="mobile-link"
                     onClick={() => setMobileOpen(false)}
-                    style={{ 
-                      padding: "1.25rem 1.5rem", 
-                      fontSize: "1.125rem", fontWeight: 600, color: "var(--text-main)", 
+                    style={{
+                      padding: "1.25rem 1.5rem",
+                      fontSize: "1.125rem", fontWeight: 600, color: "var(--text-main)",
                       textDecoration: "none", borderBottom: "1px solid var(--glass-border)",
-                      opacity: 0 
+                      opacity: 0
                     }}
                   >
                     {link.name}
                   </a>
                 ) : (
                   <>
-                    <div className="mobile-link" style={{ 
-                      padding: "1.25rem 1.5rem 0.5rem 1.5rem", 
-                      fontSize: "0.875rem", fontWeight: 700, color: "var(--accent-base)", 
-                      textTransform: "uppercase", letterSpacing: "0.05em", opacity: 0 
+                    <div className="mobile-link" style={{
+                      padding: "1.25rem 1.5rem 0.5rem 1.5rem",
+                      fontSize: "0.875rem", fontWeight: 700, color: "var(--accent-base)",
+                      textTransform: "uppercase", letterSpacing: "0.05em", opacity: 0
                     }}>
                       {link.name}
                     </div>
@@ -244,12 +223,12 @@ export default function Navbar() {
                         href={sub.href}
                         className="mobile-link"
                         onClick={() => setMobileOpen(false)}
-                        style={{ 
-                          padding: "0.75rem 1.5rem 0.75rem 2.5rem", 
-                          fontSize: "1rem", fontWeight: 500, color: "var(--text-main)", 
-                          textDecoration: "none", 
+                        style={{
+                          padding: "0.75rem 1.5rem 0.75rem 2.5rem",
+                          fontSize: "1rem", fontWeight: 500, color: "var(--text-main)",
+                          textDecoration: "none",
                           borderBottom: idx === link.dropdown.length - 1 ? "1px solid var(--glass-border)" : "none",
-                          opacity: 0 
+                          opacity: 0
                         }}
                       >
                         {sub.name}
@@ -262,11 +241,11 @@ export default function Navbar() {
 
             <div style={{ padding: "1.5rem" }}>
               <a
-                href="#donors"
+                href="/#donors"
                 className="mobile-link btn-calm btn-gradient-solid"
                 onClick={() => setMobileOpen(false)}
                 style={{
-                  display: "block", textAlign: "center", padding: "1rem", 
+                  display: "block", textAlign: "center", padding: "1rem",
                   fontSize: "1rem", borderRadius: "12px", opacity: 0
                 }}
               >
