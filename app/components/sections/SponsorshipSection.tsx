@@ -144,7 +144,7 @@ export default function SponsorshipSection() {
             {/* QR Code Section */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem" }}>
               <div style={{ background: "white", padding: "1rem", borderRadius: "16px", display: "inline-block", boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}>
-                <QRCode value="https://hutkdju26.vercel.app/#partners" size={120} />
+                <QRCode value="https://hutkjdu.site/#partners" size={120} />
               </div>
               <p style={{ fontSize: "0.875rem", color: "var(--text-muted)", fontWeight: 500, textAlign: "center" }}>
                 Scan untuk melihat<br/>Daftar Sponsor Resmi
