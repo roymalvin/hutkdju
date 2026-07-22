@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "Siapa Tree of Heart?",
-    answer: "Tree of Heart (TOH) adalah organisasi lingkungan yang bergerak lebih dari sekadar menanam pohon. Mereka tidak hanya merawat dan memastikan setiap pohon dapat tumbuh dengan baik, tetapi juga berdedikasi tinggi untuk memberdayakan serta memperhatikan kesejahteraan masyarakat di sekitarnya."
+    answer: "Tree of Heart (ToH) adalah organisasi lingkungan yang bergerak lebih dari sekadar menanam pohon. Mereka tidak hanya merawat dan memastikan setiap pohon dapat tumbuh dengan baik, tetapi juga berdedikasi tinggi untuk memberdayakan serta memperhatikan kesejahteraan masyarakat di sekitarnya."
   },
   {
     question: "Siapa saja yang bisa mengikuti acara Birthday Party?",
